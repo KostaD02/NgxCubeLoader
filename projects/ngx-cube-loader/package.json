@@ -1,6 +1,18 @@
 {
   "name": "ngx-cube-loader",
   "version": "0.0.1",
+  "description": "Loyalty application for shops",
+  "author": "Konstantine Datunishvili",
+  "bugs": {
+    "url": "https://github.com/KostaD02/kd-loader/issues"
+  },
+  "contributors": [
+    {
+      "name": "Konstantine Datunishvili",
+      "email": "info@konstantinedatunishvili.com",
+      "url": "https://konstantinedatunishvili.com"
+    }
+  ],
   "peerDependencies": {
     "@angular/common": "^17.2.0",
     "@angular/core": "^17.2.0"
@@ -8,5 +20,16 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KostaD02/kd-loader.git"
+  },
+  "keywords": [
+    "angular",
+    "loader",
+    "cube",
+    "animation"
+  ],
+  "license": "MIT"
 }

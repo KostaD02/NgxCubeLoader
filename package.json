@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-library": "ng build ngx-cube-loader --configuration=production",
+    "pack-lib": "npm run build-library && cd dist/ngx-cube-loader && npm pack"
   },
   "private": true,
   "dependencies": {
