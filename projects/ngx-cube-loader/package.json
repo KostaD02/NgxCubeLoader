@@ -1,7 +1,7 @@
 {
   "name": "ngx-cube-loader",
-  "version": "0.0.1",
-  "description": "Loyalty application for shops",
+  "version": "0.0.2",
+  "description": "Angular cube loader",
   "author": "Konstantine Datunishvili",
   "bugs": {
     "url": "https://github.com/KostaD02/kd-loader/issues"

@@ -1,6 +1,28 @@
 {
   "name": "kd-loader",
-  "version": "0.0.0",
+  "version": "0.0.2",
+  "description": "Angular cube loader",
+  "author": "Konstantine Datunishvili",
+  "bugs": {
+    "url": "https://github.com/KostaD02/kd-loader/issues"
+  },
+  "contributors": [
+    {
+      "name": "Konstantine Datunishvili",
+      "email": "info@konstantinedatunishvili.com",
+      "url": "https://konstantinedatunishvili.com"
+    }
+  ],
+  "keywords": [
+    "angular",
+    "loader",
+    "cube",
+    "animation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KostaD02/kd-loader.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
