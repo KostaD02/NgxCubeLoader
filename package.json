@@ -1,6 +1,6 @@
 {
   "name": "kd-loader",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "Angular cube loader",
   "author": "Konstantine Datunishvili",
   "bugs": {
@@ -30,7 +30,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build-library": "ng build ngx-cube-loader --configuration=production",
-    "pack-lib": "npm run build-library && cd dist/ngx-cube-loader && npm pack"
+    "pack-lib": "npm run build-library && cd dist/ngx-cube-loader",
+    "publish-lib": "npm run pack-lib && cd dist/ngx-cube-loader && npm publish"
   },
   "private": true,
   "dependencies": {

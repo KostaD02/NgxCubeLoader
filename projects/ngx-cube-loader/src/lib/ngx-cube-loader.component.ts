@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'lib-ngx-cube-loader',
+  selector: 'ngx-cube-loader',
   standalone: true,
   imports: [],
   template: `
