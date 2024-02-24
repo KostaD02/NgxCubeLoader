@@ -4,7 +4,7 @@ Simple Angular(17+) cube loader
 
 ## Example
 
-<img src="https://github.com/KostaD02/kd-loader/blob/main/visual.gif" alt="example view of animation">
+<img src="https://raw.githubusercontent.com/KostaD02/kd-loader/main/assets/visual.gif" alt="example view of animation">
 
 ## Installation
 
