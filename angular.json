@@ -109,6 +109,9 @@
             "styles": ["projects/demo/src/styles.css"],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     },
