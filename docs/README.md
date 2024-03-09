@@ -1,3 +1,0 @@
-# NgxCubeLoader
-
-Simple demo preview
