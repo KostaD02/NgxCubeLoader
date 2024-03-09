@@ -1,4 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { ColorSet, PredefinedColorSet } from './types/colors';
+import { PREDEFINED_COLORS } from './consts/predefined-colors';
+import { CubeDuration, CubeSize } from './types';
+import { NgxCubeLoaderService } from './ngx-cube-loader.service';
 
 @Component({
   selector: 'ngx-cube-loader',
@@ -7,41 +11,35 @@ import { Component, Input } from '@angular/core';
   template: `
     <div
       class="box-wrapper"
-      [class.full-size]="isFullSize"
+      style="--size: {{ size }}"
       aria-label="cube animation"
+      [class.full-size]="isFullSize"
     >
-      <div class="boxes">
+      <div class="boxes" style="--duration: {{ duration }}">
+        @for (box of boxes; track box) {
         <div class="box">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          @for (color of colorSet; track color) {
+          <div style="--background: {{ color }}"></div>
+          }
         </div>
-        <div class="box">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div class="box">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div class="box">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        }
       </div>
     </div>
   `,
   styles: `
+    * {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      pointer-events: none;
+    }
     div.box-wrapper {
+      --size: 32px;
+      --gap: 15px;
       height: fit-content;
       width: fit-content;
+      min-height: calc(var(--size) * 4 + var(--gap));
     }
 
     div.box-wrapper.full-size {
@@ -53,7 +51,6 @@ import { Component, Input } from '@angular/core';
     }
 
     div.box-wrapper div.boxes {
-      --size: 32px;
       --duration: 800ms;
       height: calc(var(--size) * 2);
       width: calc(var(--size) * 3);
@@ -188,6 +185,37 @@ import { Component, Input } from '@angular/core';
     }
   `,
 })
-export class NgxCubeLoaderComponent {
+export class NgxCubeLoaderComponent implements OnInit {
   @Input() isFullSize = false;
+  @Input() colorSet: ColorSet | PredefinedColorSet | 'random' = 'blue';
+  @Input() size: CubeSize = 32;
+  @Input() duration: CubeDuration = 800;
+
+  readonly ngxCubeLoaderService = inject(NgxCubeLoaderService);
+
+  private readonly boxCount = 4;
+  readonly boxes: number[] = new Array(this.boxCount).fill(0);
+
+  ngOnInit(): void {
+    const isPredefinedColorSet = typeof this.colorSet === 'string';
+
+    if (isPredefinedColorSet) {
+      if (this.colorSet === 'random') {
+        const randomColor = this.ngxCubeLoaderService.getRandomHexColor();
+        this.colorSet =
+          this.ngxCubeLoaderService.generateColorPalette(randomColor);
+      } else {
+        const color = this.colorSet as PredefinedColorSet;
+        this.colorSet = PREDEFINED_COLORS[color];
+      }
+    }
+
+    if (typeof this.size === 'number') {
+      this.size = `${this.size}px`;
+    }
+
+    if (typeof this.duration === 'number') {
+      this.duration = `${this.duration}ms`;
+    }
+  }
 }

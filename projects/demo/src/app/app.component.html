@@ -1,1 +1,6 @@
-<ngx-cube-loader></ngx-cube-loader>
+<div class="wrapper">
+  @for(colorSet of predefinecColors; track colorSet) {
+  <ngx-cube-loader [colorSet]="colorSet"></ngx-cube-loader>
+  }
+  <ngx-cube-loader colorSet="random"></ngx-cube-loader>
+</div>

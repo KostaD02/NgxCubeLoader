@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgxCubeLoaderComponent } from '../../../../dist/ngx-cube-loader';
+import {
+  NgxCubeLoaderComponent,
+  PREDEFINED_COLORS,
+} from '../../../../dist/ngx-cube-loader';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +13,5 @@ import { NgxCubeLoaderComponent } from '../../../../dist/ngx-cube-loader';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'demo';
+  readonly predefinecColors = Object.values(PREDEFINED_COLORS);
 }

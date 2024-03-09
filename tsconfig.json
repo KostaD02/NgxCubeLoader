@@ -13,6 +13,9 @@
     "paths": {
       "ngx-cube-loader": [
         "./dist/ngx-cube-loader"
+      ],
+      "test": [
+        "./dist/test"
       ]
     },
     "esModuleInterop": true,
