@@ -1,6 +1,6 @@
 {
   "name": "kd-loader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Angular cube loader",
   "author": "Konstantine Datunishvili",
   "bugs": {
@@ -28,7 +28,7 @@
     "start": "ng serve",
     "start:dev": "ng build ngx-cube-loader --watch --configuration development",
     "build": "ng build",
-    "build-demo": "ng build --project demo --base-href=/kd-loader/",
+    "build-demo": "ng build --project demo --base-href=/NgxCubeLoader/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build-library": "ng build ngx-cube-loader --configuration=production",

@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  inject,
+} from '@angular/core';
 import { ColorSet, PredefinedColorSet } from './types/colors';
 import { PREDEFINED_COLORS } from './consts/predefined-colors';
 import { CubeDuration, CubeSize } from './types';
@@ -185,7 +192,7 @@ import { NgxCubeLoaderService } from './ngx-cube-loader.service';
     }
   `,
 })
-export class NgxCubeLoaderComponent implements OnInit {
+export class NgxCubeLoaderComponent implements OnInit, OnChanges {
   @Input() isFullSize = false;
   @Input() colorSet: ColorSet | PredefinedColorSet | 'random' = 'blue';
   @Input() size: CubeSize = 32;
@@ -216,6 +223,30 @@ export class NgxCubeLoaderComponent implements OnInit {
 
     if (typeof this.duration === 'number') {
       this.duration = `${this.duration}ms`;
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // TODO: convert to signals
+    for (const change in changes) {
+      if (change === 'isFullSize') {
+        this.isFullSize = changes[change].currentValue;
+      }
+      if (change === 'colorSet') {
+        this.colorSet = changes[change].currentValue;
+      }
+      if (change === 'size') {
+        this.size = changes[change].currentValue;
+        if (typeof this.size === 'number') {
+          this.size = `${this.size}px`;
+        }
+      }
+      if (change === 'duration') {
+        this.duration = changes[change].currentValue;
+        if (typeof this.duration === 'number') {
+          this.duration = `${this.duration}ms`;
+        }
+      }
     }
   }
 }

@@ -1,6 +1,55 @@
-<div class="wrapper">
-  @for(colorSet of predefinecColors; track colorSet) {
-  <ngx-cube-loader [colorSet]="colorSet"></ngx-cube-loader>
-  }
-  <ngx-cube-loader colorSet="random"></ngx-cube-loader>
-</div>
+<section class="wrapper">
+  <div class="controls container-sm p-4">
+    <div class="mb-3">
+      <label for="size" class="form-label">Size ({{ size }})</label>
+      <input
+        type="range"
+        class="form-range"
+        min="12"
+        max="52"
+        id="size"
+        [(value)]="size"
+        (change)="updateSize($event)"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="duration" class="form-label"
+        >Duration ({{ duration }} ms)</label
+      >
+      <input
+        type="range"
+        class="form-range"
+        min="100"
+        max="1500"
+        id="duration"
+        [(value)]="duration"
+        (change)="updateDuration($event)"
+      />
+    </div>
+    <div class="mb-3 d-flex align-items-center gap-3">
+      <button class="btn btn-primary" (click)="size = 32; duration = 800">
+        Reset
+      </button>
+      <button class="btn btn-primary" (click)="generateRandomPalette()">
+        Generate random palette
+      </button>
+    </div>
+  </div>
+  <div
+    class="d-flex justify-content-center align-items-center align-content-center gap-4 flex-wrap"
+  >
+    @for(colorSet of predefinecColors; track colorSet) { @if ($index === 1) {
+    <ngx-cube-loader
+      [size]="size"
+      [duration]="duration"
+      [colorSet]="randomPalette"
+    ></ngx-cube-loader>
+    }
+    <ngx-cube-loader
+      [size]="size"
+      [duration]="duration"
+      [colorSet]="colorSet"
+    ></ngx-cube-loader>
+    }
+  </div>
+</section>

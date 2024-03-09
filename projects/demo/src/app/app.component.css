@@ -1,12 +1,10 @@
-div.wrapper {
+section.wrapper {
   width: 100%;
   max-width: 600px;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  gap: 25px;
-  flex-wrap: wrap;
   margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+  place-items: center;
 }
