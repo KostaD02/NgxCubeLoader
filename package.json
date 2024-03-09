@@ -28,6 +28,7 @@
     "start": "ng serve",
     "start:dev": "ng build ngx-cube-loader --watch --configuration development",
     "build": "ng build",
+    "build-demo": "ng build --project demo --base-href=/kd-loader/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build-library": "ng build ngx-cube-loader --configuration=production",
