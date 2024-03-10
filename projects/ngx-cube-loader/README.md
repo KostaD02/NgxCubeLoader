@@ -133,6 +133,8 @@ In the code, there are a few types used.
 | `generateColorPalette` | Base color (Color type), Palette Size | Method will generate array as many as provided palette size, colors will be based on base color | `ColorSet` |
 | `getRandomHexColor`    | None                                  | Method will generate random hex and return it                                                   | `Color`    |
 
+Based on the cube animations made by [Aaron Iker](https://dribbble.com/ai)
+
 ## License
 
 ngx-cube-loader is [MIT licensed](https://github.com/KostaD02/kd-loader/blob/main/LICENSE)
